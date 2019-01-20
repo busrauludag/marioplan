@@ -1,3 +1,6 @@
+// Reducer temel olarak bir JavaScript fonksiyonudur ve önceki state ile action’ı alarak sonraki state’i üretir.
+// store’a gelen action sonucunda uygulamanın state’inin nasıl değiştirileceğini belirler.
+
 const initState = {
   allProjects:[
     { id: 1, title: 'help me find peach', content: 'blah blah blah' },

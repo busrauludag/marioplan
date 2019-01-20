@@ -49,4 +49,5 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+// store.dispatch() kullanımı yerine connect()
 export default connect(null, mapDispatchToProps)(CreateProject);
