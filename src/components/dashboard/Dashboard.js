@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 import Notifications from './Notifications';
 import ProjectList from '../projects/ProjectList';
 import { connect } from 'react-redux'; // to connect to store
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+
 
 class Dashboard extends Component{
   render(){
@@ -25,9 +28,16 @@ class Dashboard extends Component{
 }
 
 const matStateToProps = (state) => {
+  console.log(state);
   return{
-    projects: state.project.allProjects
+    // projects: state.project.allProjects
+    projects: state.firestore.ordered.projects
   }
 }
 
-export default connect(matStateToProps)(Dashboard);  // to know connect which store data and mapping props
+export default compose(
+  connect(matStateToProps),
+  firestoreConnect([
+    { collection: 'projects' }
+  ])
+)(Dashboard)  // to know connect which store data and mapping props
